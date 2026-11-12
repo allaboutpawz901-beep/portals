@@ -1,9 +1,5 @@
 node_modules/
 .next/
-dist/
-build/
-.env
 .env.*
-!.env.example
+shots/
 *.log
-.DS_Store

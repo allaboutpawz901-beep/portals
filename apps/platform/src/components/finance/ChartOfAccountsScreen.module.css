@@ -1,0 +1,620 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  background-color: #faf9fc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1c1e;
+}
+
+/* Context Header */
+.contextHeader {
+  height: 52px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dad9dd;
+  flex-shrink: 0;
+}
+
+.breadcrumbsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.breadcrumbDomainIcon {
+  font-size: 20px;
+  color: #5a6355;
+  display: inline-flex;
+}
+
+.breadcrumbDomain {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1c1e;
+}
+
+.breadcrumbSep {
+  font-size: 12px;
+  color: #6f7a69;
+}
+
+.breadcrumbSection {
+  font-size: 12px;
+  color: #5a6355;
+}
+
+.breadcrumbActive {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0a6400;
+}
+
+.contextTag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #5a6355;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 0 24px 48px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #1a1c1e;
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 12px;
+  color: #5a6355;
+  margin: 2px 0 0 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* Split Button */
+.splitBtn {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.splitBtnMain {
+  height: 32px;
+  padding: 0 12px;
+  background-color: #0a6400;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.12s;
+}
+
+.splitBtnMain:hover {
+  background-color: #108000;
+}
+
+.splitBtnArrow {
+  height: 32px;
+  padding: 0 6px;
+  background-color: #0a6400;
+  color: #ffffff;
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitBtnArrow:hover {
+  background-color: #108000;
+}
+
+.headerBtn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 13px;
+  color: #1a1c1e;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.12s;
+}
+
+.headerBtn:hover {
+  background-color: #f4f3f7;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.searchInputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 360px;
+  min-width: 180px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 8px;
+  font-size: 16px;
+  color: #6f7a69;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px 0 30px;
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #1a1c1e;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #0a6400;
+}
+
+.typeFilterLabel {
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.typeFilterSelect {
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a1c1e;
+  cursor: pointer;
+}
+
+.typeFilterSelect:focus {
+  outline: none;
+}
+
+.toolbarBtn {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a1c1e;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.toolbarBtn:hover {
+  background-color: #f4f3f7;
+}
+
+.toolbarBtnActive {
+  background-color: #0077c5 !important;
+  color: #ffffff !important;
+  border-color: #0077c5 !important;
+}
+
+/* Edit Mode Banner */
+.editBanner {
+  background-color: rgba(0, 119, 197, 0.05);
+  border: 1px solid rgba(0, 119, 197, 0.3);
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #0077c5;
+  margin-bottom: 12px;
+}
+
+.editBannerBtn {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #0077c5;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #0077c5;
+  cursor: pointer;
+}
+
+.editBannerBtn:hover {
+  background-color: #f4f3f7;
+}
+
+/* Table Card */
+.tableCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dad9dd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  border-collapse: collapse;
+}
+
+.thead {
+  background-color: #f4f3f7;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5a6355;
+  border-bottom: 1px solid #dad9dd;
+}
+
+.thead th {
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.row {
+  border-bottom: 1px solid #eeedf1;
+  transition: background-color 0.12s;
+  cursor: pointer;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background-color: #f4f3f7;
+}
+
+.rowInactive {
+  opacity: 0.6;
+}
+
+.td {
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+.typeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.dotAsset { background-color: #0077c5; }
+.dotLiability { background-color: #6b1e28; }
+.dotEquity { background-color: #0e5e6f; }
+.dotIncome { background-color: #1e5a38; }
+.dotExpense { background-color: #5a6355; }
+
+/* Inline Edit Inputs */
+.inlineInput {
+  width: 100%;
+  height: 28px;
+  border: 1px solid #0077c5;
+  border-radius: 2px;
+  padding: 2px 6px;
+  font-size: 12px;
+  background-color: #ffffff;
+}
+
+.inlineInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 119, 197, 0.2);
+}
+
+/* Dropdown Menu */
+.menu {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  min-width: 220px;
+  padding: 4px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuHeader {
+  padding: 6px 10px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5a6355;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  text-align: left;
+  color: #1a1c1e;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: #f4f3f7;
+}
+
+.menuItemDanger {
+  color: #ba1a1a;
+}
+
+.menuItemDanger:hover {
+  background-color: #ffdad6;
+}
+
+.menuSep {
+  height: 1px;
+  background-color: #eeedf1;
+  margin: 4px 0;
+}
+
+/* ═══════════ DRAWERS ═══════════ */
+.drawerScrim {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(26, 28, 30, 0.35);
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.drawerScrimOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  z-index: 81;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.22s ease;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.accountDrawer {
+  width: 560px;
+  max-width: 96vw;
+}
+
+.registerDrawer {
+  width: 900px;
+  max-width: 96vw;
+}
+
+.drawerHeader {
+  height: 56px;
+  padding: 0 20px;
+  border-bottom: 1px solid #dad9dd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.drawerTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1c1e;
+  margin: 0;
+}
+
+.drawerBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawerFooter {
+  height: 56px;
+  border-top: 1px solid #dad9dd;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5a6355;
+  margin-bottom: 6px;
+}
+
+.fieldInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: #1a1c1e;
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: #0077c5;
+}
+
+/* Register Drawer Specific */
+.registerSummaryStrip {
+  background-color: #f4f3f7;
+  border-bottom: 1px solid #dad9dd;
+  padding: 12px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.regStripLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5a6355;
+}
+
+.regStripVal {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1c1e;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.regRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eeedf1;
+  font-size: 13px;
+}
+
+.regRow:hover {
+  background-color: #f8fafb;
+}
+
+.regDate {
+  width: 80px;
+  color: #5a6355;
+  font-size: 12px;
+}
+
+.regDesc {
+  flex: 1;
+  font-weight: 500;
+}
+
+.regAmt {
+  width: 110px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.regBal {
+  width: 120px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #5a6355;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1c1e;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 400;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}

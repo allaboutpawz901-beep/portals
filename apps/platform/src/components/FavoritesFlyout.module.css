@@ -1,0 +1,362 @@
+.flyout {
+  position: fixed;
+  left: 68px;
+  width: 320px;
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  z-index: 1020;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: popIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.arrow {
+  position: absolute;
+  left: -6px;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  background-color: #faf9fc;
+  border-left: 1px solid #dad9dd;
+  border-bottom: 1px solid #dad9dd;
+  transform: rotate(45deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.header {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  background-color: #faf9fc;
+  border-bottom: 1px solid #dad9dd;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Dual switcher — Bookmarks | Favorites */
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background-color: #eeedf1;
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.switcherBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: #5a6355;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s, box-shadow 0.12s;
+  white-space: nowrap;
+}
+
+.switcherBtn:hover {
+  color: #1a1c1e;
+}
+
+.switcherBtnActive {
+  background-color: #ffffff;
+  color: #0a6400;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.switcherBtnActive:hover {
+  color: #0a6400;
+}
+
+.modeCount {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 8px;
+  background-color: #e3ede1;
+  color: #0a6400;
+}
+
+.switcherBtn:not(.switcherBtnActive) .modeCount {
+  background-color: #e0dde4;
+  color: #6f7a69;
+}
+
+.removePageBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ba1a1a;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.12s, border-color 0.12s;
+  white-space: nowrap;
+}
+
+.removePageBtn:hover {
+  background-color: #fdecea;
+  border-color: #f5c6c6;
+}
+
+.customizeBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0a6400;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+
+.customizeBtn:hover {
+  background-color: #e8f5e9;
+  border-color: #b9f6ca;
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overscroll-behavior: contain;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s;
+  border: none;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+}
+
+.item:hover {
+  background-color: #f4f3f7;
+}
+
+.itemIcon {
+  font-size: 18px;
+  color: #0a6400;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.itemLabel {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #1a1c1e;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemGroup {
+  font-size: 10px;
+  font-weight: 500;
+  color: #6f7a69;
+  background-color: #eeedf1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.itemArrow {
+  font-size: 16px;
+  color: #becab6;
+  opacity: 0;
+  transition: opacity 0.12s, color 0.12s;
+}
+
+.item:hover .itemArrow {
+  opacity: 1;
+  color: #0a6400;
+}
+
+/* Bookmark rows — nav button + hover remove */
+.bookmarkRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.bookmarkRow .item {
+  flex: 1;
+  min-width: 0;
+  padding-right: 30px;
+}
+
+.rowRemoveBtn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  color: #9aa293;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, background-color 0.12s, color 0.12s;
+}
+
+.bookmarkRow:hover .rowRemoveBtn {
+  opacity: 1;
+}
+
+.rowRemoveBtn:hover {
+  background-color: #fdecea;
+  color: #ba1a1a;
+}
+
+/* Hide the nav arrow when remove is visible so they don't collide */
+.bookmarkRow:hover .itemArrow {
+  opacity: 0;
+}
+
+.footerPin {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6f7a69;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background-color: #eeedf1;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+
+.emptyState {
+  padding: 28px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.emptyIcon {
+  font-size: 36px;
+  color: #becab6;
+}
+
+.emptyTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1c1e;
+  margin: 0;
+}
+
+.emptyDesc {
+  font-size: 12px;
+  color: #5a6355;
+  margin: 0;
+  line-height: 16px;
+}
+
+.emptyActionBtn {
+  margin-top: 6px;
+  height: 30px;
+  padding: 0 12px;
+  background-color: #0a6400;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.12s;
+}
+
+.emptyActionBtn:hover {
+  background-color: #108000;
+}
+
+.footer {
+  padding: 8px 12px;
+  background-color: #faf9fc;
+  border-top: 1px solid #eeedf1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #6f7a69;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.footerHint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footerLink {
+  color: #0a6400;
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}

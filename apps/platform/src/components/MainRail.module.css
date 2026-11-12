@@ -1,0 +1,216 @@
+.rail {
+  position: fixed;
+  left: 0;
+  top: 92px;
+  bottom: 0;
+  width: 64px;
+  background-color: #ffffff;
+  border-right: 1px solid #dad9dd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  z-index: 40;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.createBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: #0a6400;
+  color: #ffffff;
+}
+
+.createBtn:hover {
+  background-color: #108000;
+}
+
+.railBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #5a6355;
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s;
+}
+
+.railBtn:hover {
+  background-color: #eeedf1;
+}
+
+.railBtnActive {
+  background-color: #eeedf1;
+  color: #f59e0b;
+}
+
+.railBtnHasFavorites {
+  color: #1a1c1e;
+}
+
+.starBtnWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.starFilled {
+  color: #f59e0b;
+}
+
+.starBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  height: 15px;
+  min-width: 15px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background-color: #0a6400;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: center;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+
+.divider {
+  width: 24px;
+  height: 1px;
+  background-color: #dad9dd;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.pinnedLabel {
+  font-size: 8px;
+  color: #6f7a69;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pinnedList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.pinnedBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #5a6355;
+}
+
+.pinnedBtn:hover {
+  background-color: #eeedf1;
+}
+
+.pinnedBtnActive {
+  background-color: #e9e8eb;
+  color: #0a6400;
+}
+
+.pinnedBtnActive:hover {
+  background-color: #e9e8eb;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-top: 1px solid #dad9dd;
+  padding-top: 4px;
+}
+
+.utilBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #5a6355;
+}
+
+.utilBtn:hover {
+  background-color: #eeedf1;
+}
+
+.inboxBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: #ba1a1a;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #0a6400;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+:global(.material-symbols-outlined).icon20 {
+  font-size: 20px;
+}
+
+:global(.material-symbols-outlined).icon19 {
+  font-size: 19px;
+}

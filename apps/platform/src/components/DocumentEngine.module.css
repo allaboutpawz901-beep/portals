@@ -1,0 +1,945 @@
+.docEngine {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+}
+
+.hiddenImp {
+  display: none !important;
+}
+
+.topBar {
+  height: 56px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dad9dd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+
+.topBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.docTitle {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+
+.docTabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+
+.docTab {
+  height: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  border-bottom: 2px solid transparent;
+  color: #5a6355;
+}
+
+.docTabActive {
+  border-bottom-color: #0077c5;
+  color: #0077c5;
+  font-weight: 600;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topActionBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #5a6355;
+}
+
+.topActionBtn:hover {
+  color: #1a1c1e;
+}
+
+.closeRoundBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeRoundBtn:hover {
+  background-color: #eeedf1;
+}
+
+.canvasArea {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  background-color: #faf9fc;
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.panelEdit,
+.panelPayor {
+  width: 100%;
+  max-width: 896px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+}
+
+.panelEmail {
+  width: 100%;
+  max-width: 672px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+  padding: 32px;
+  text-align: center;
+}
+
+.panelPdf {
+  width: 100%;
+  max-width: 768px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+  padding: 32px;
+}
+
+.editTop {
+  padding: 32px 32px 16px;
+  border-bottom: 1px solid #dad9dd;
+}
+
+.invoiceHeading {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  color: #0a6400;
+  margin-bottom: 24px;
+}
+
+.editHeaderCols {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.halfCol {
+  width: 50%;
+}
+
+.customerInputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 256px;
+  margin-bottom: 16px;
+}
+
+.customerInput {
+  width: 100%;
+  height: 40px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.customerInput:focus {
+  outline: none;
+  border-color: #0a6400;
+}
+
+.skeletonWide {
+  height: 16px;
+  width: 192px;
+  background-color: #eeedf1;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeletonNarrow {
+  height: 16px;
+  width: 128px;
+  background-color: #eeedf1;
+  border-radius: 4px;
+}
+
+.metaRightCol {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 256px;
+}
+
+.metaLabel {
+  color: #5a6355;
+  width: 80px;
+  text-align: right;
+}
+
+.metaInput {
+  flex: 1 1 0%;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  text-align: right;
+}
+
+.metaInput:focus {
+  outline: none;
+  border-color: #0a6400;
+}
+
+.editBody {
+  padding: 32px;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.linesTable {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
+.linesHead {
+  border-bottom: 1px solid #dad9dd;
+  color: #5a6355;
+  font-weight: 600;
+}
+
+.thNum {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 40px;
+}
+
+.thText {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.thQty {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: right;
+  width: 64px;
+}
+
+.thMoney {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: right;
+  width: 96px;
+}
+
+.lineRow {
+  border-bottom: 1px solid #dad9dd;
+}
+
+.tdMuted {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #5a6355;
+}
+
+.tdMutedRight {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: right;
+  color: #5a6355;
+}
+
+.tdCell {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.lineInput {
+  width: 100%;
+  height: 32px;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.lineInput:focus {
+  border-bottom-color: #0a6400;
+  outline: none;
+}
+
+.lineInputRight {
+  width: 100%;
+  height: 32px;
+  text-align: right;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.lineInputRight:focus {
+  border-bottom-color: #0a6400;
+  outline: none;
+}
+
+.lineBtns {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.smallOutlineBtn {
+  padding: 4px 12px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.smallOutlineBtn:hover {
+  background-color: #f4f3f7;
+}
+
+.bottomSplit {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bottomLeft {
+  width: 50%;
+  padding-right: 32px;
+}
+
+.bottomLeft > * + * {
+  margin-top: 16px;
+}
+
+.subHeading {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+.helperText {
+  font-size: 11px;
+  color: #5a6355;
+  margin-bottom: 8px;
+}
+
+.greenLink {
+  color: #0a6400;
+}
+
+.greenLink:hover {
+  text-decoration: underline;
+}
+
+.greenLinkSmall {
+  color: #0a6400;
+  font-size: 11px;
+}
+
+.greenLinkSmall:hover {
+  text-decoration: underline;
+}
+
+.textarea20 {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.textarea20:focus {
+  outline: none;
+  border-color: #0a6400;
+}
+
+.textarea16 {
+  width: 100%;
+  height: 64px;
+  padding: 8px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.textarea16:focus {
+  outline: none;
+  border-color: #0a6400;
+}
+
+.attachmentDrop {
+  border: 2px dashed #dad9dd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.attachmentDrop:hover {
+  background-color: #f4f3f7;
+}
+
+.attachmentPrimary {
+  color: #0a6400;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.attachmentSub {
+  font-size: 11px;
+  color: #5a6355;
+  margin-top: 4px;
+}
+
+.totalsCol {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.mutedText {
+  color: #5a6355;
+}
+
+.rightAlignRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Email panel */
+.emailHero {
+  background-color: #f4f3f7;
+  padding: 32px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 24px;
+}
+
+.emailHeading {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.emailSub {
+  font-size: 14px;
+  line-height: 20px;
+  color: #5a6355;
+  margin-bottom: 16px;
+}
+
+.emailBalanceLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #5a6355;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.emailBalanceVal {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+.emailMessageText {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+.emailCtaBtn {
+  padding: 8px 32px;
+  background-color: #0a6400;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 32px;
+}
+
+.emailCtaBtn:hover {
+  background-color: #108000;
+}
+
+.emailFooter {
+  border-top: 1px solid #dad9dd;
+  padding-top: 24px;
+  text-align: left;
+}
+
+.emailCompany {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.emailContact {
+  font-size: 11px;
+  color: #0a6400;
+  margin-bottom: 4px;
+}
+
+/* Payor panel */
+.payorWrap {
+  padding: 32px;
+  display: flex;
+  gap: 32px;
+}
+
+.payorLeft {
+  width: 66.666667%;
+}
+
+.payorLeft > * + * {
+  margin-top: 16px;
+}
+
+.payorBalanceBox {
+  border: 1px solid #dad9dd;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  background-color: #faf9fc;
+}
+
+.payorBalanceLabel {
+  font-size: 11px;
+  color: #5a6355;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.payorBalanceVal {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.payorCopy {
+  font-size: 10px;
+  color: #5a6355;
+}
+
+.payorDetailBox {
+  border: 1px solid #dad9dd;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.payorCompanyTitle {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 4px;
+}
+
+.payorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.payorBtns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.payorViewBtn {
+  padding: 6px 16px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.payorViewBtn:hover {
+  background-color: #f4f3f7;
+}
+
+.payorIconBtn {
+  padding: 6px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payorIconBtn:hover {
+  background-color: #f4f3f7;
+}
+
+.payorRight {
+  width: 33.333333%;
+  border-left: 1px solid #dad9dd;
+  padding-left: 32px;
+}
+
+.payorOptHeading {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
+.payorOptList {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.payorOptList > * + * {
+  margin-top: 12px;
+}
+
+.payorOptRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switchOn {
+  width: 32px;
+  height: 16px;
+  background-color: #0a6400;
+  border-radius: 9999px;
+  position: relative;
+}
+
+.switchKnobOn {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 9999px;
+}
+
+.switchOff {
+  width: 32px;
+  height: 16px;
+  background-color: #e9e8eb;
+  border-radius: 9999px;
+  position: relative;
+}
+
+.switchKnobOff {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 9999px;
+}
+
+/* PDF panel */
+.pdfHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
+.pdfInvoiceTitle {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #0a6400;
+  margin-bottom: 4px;
+}
+
+.pdfCompanyName {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.pdfContactRight {
+  text-align: right;
+  font-size: 14px;
+  line-height: 20px;
+  color: #5a6355;
+}
+
+.pdfDetailsBox {
+  background-color: #f4f3f7;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.pdfDetailsTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.pdfDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #5a6355;
+}
+
+.pdfTable {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 32px;
+}
+
+.pdfTableHead {
+  border-bottom: 2px solid #dad9dd;
+  font-weight: 600;
+}
+
+.pdfTdEmpty {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.pdfTotalWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pdfTotalBox {
+  width: 33.333333%;
+}
+
+.pdfTotalRow {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  border-top: 1px solid #dad9dd;
+}
+
+/* Bottom bar */
+.bottomBar {
+  height: 64px;
+  background-color: #ffffff;
+  border-top: 1px solid #dad9dd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+
+.cancelBtn {
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 1px solid #dad9dd;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.cancelBtn:hover {
+  background-color: #f4f3f7;
+}
+
+.bottomBarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.textBtnUnderline {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.textBtnUnderline:hover {
+  text-decoration: underline;
+}
+
+.textBtnMuted {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #5a6355;
+}
+
+.textBtnMuted:hover {
+  color: #1a1c1e;
+}
+
+.splitBtn {
+  display: flex;
+  border-radius: 4px;
+}
+
+.splitSecondaryMain {
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 1px solid #dad9dd;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 4px 0 0 4px;
+}
+
+.splitSecondaryMain:hover {
+  background-color: #f4f3f7;
+}
+
+.splitSecondaryArrow {
+  height: 32px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border: 1px solid #dad9dd;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0 4px 4px 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitSecondaryArrow:hover {
+  background-color: #f4f3f7;
+}
+
+.splitPrimaryMain {
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #0a6400;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 4px 0 0 4px;
+}
+
+.splitPrimaryMain:hover {
+  background-color: #108000;
+}
+
+.splitPrimaryArrow {
+  height: 32px;
+  padding-left: 6px;
+  padding-right: 6px;
+  background-color: #0a6400;
+  color: #ffffff;
+  border-radius: 0 4px 4px 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitPrimaryArrow:hover {
+  background-color: #108000;
+}
+
+:global(.material-symbols-outlined).iconOutline {
+  color: #6f7a69;
+}
+
+:global(.material-symbols-outlined).icon18Dropdown {
+  position: absolute;
+  right: 12px;
+  color: #6f7a69;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+:global(.material-symbols-outlined).icon18 {
+  font-size: 18px;
+}
+
+:global(.material-symbols-outlined).icon16 {
+  font-size: 16px;
+}

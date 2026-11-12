@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Contacts global CSS
+   ───────────────────────────────────────────────────────────────────
+   Contacts-specific classes from 6 HTML <style> blocks.
+   Shared classes (drawer, peek, row-menu, bulk-bar, etc.) already
+   exist in marketing.css. This file adds ONLY contacts-unique classes.
+   Loaded after marketing.css in layout.tsx.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Green-accent screens (customer profile, customers flat table) ── */
+/* These screens use #0a6400 (green) instead of #0077c5 (blue) for focus */
+.crm-green .tab-underline.active { border-bottom-color: #0a6400; color: #0a6400; font-weight: 600; }
+.crm-green .field-input:focus { outline: none; border-color: #0a6400; box-shadow: 0 0 0 2px rgba(10,100,0,.1); }
+.crm-green .field-textarea:focus { outline: none; border-color: #0a6400; box-shadow: 0 0 0 2px rgba(10,100,0,.1); }
+.crm-green .action-link { color: #0a6400; font-weight: 600; font-size: 12px; cursor: pointer; }
+.crm-green .action-link:hover { text-decoration: underline; }
+
+/* ── Role pills (parties, crm overview) ── */
+.pill.role { background: #f4f3f7; color: #1a1c1e; border: 1px solid #dad9dd; }
+.pill.role.customer { background: #e8f5e9; color: #0a6400; border-color: #b9f6ca; }
+.pill.role.vendor { background: #e3f2fd; color: #0055a5; border-color: #bbdefb; }
+.pill.role.supplier { background: #fff3e0; color: #bf5c59; border-color: #ffe0b2; }
+.pill.role.contact { background: #f3e5f5; color: #6b1e28; border-color: #e1bee7; }
+.pill.role.seller { background: #e0f2f1; color: #00695c; border-color: #b2dfdb; }
+
+/* ── Avatar ── */
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: #e6efed; color: #0a6400; display: grid; place-items: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+.avatar.vendor { background: #e3f2fd; color: #0055a5; }
+.avatar.supplier { background: #fff3e0; color: #bf5c59; }
+.avatar.contact { background: #f3e5f5; color: #6b1e28; }
+.avatar.seller { background: #e0f2f1; color: #00695c; }
+.avatar.lg { width: 40px; height: 40px; font-size: 14px; }
+
+/* ── CRM Overview: funnel + activity ── */
+.funnel-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f2f3; }
+.funnel-row:last-child { border-bottom: 0; }
+.funnel-bar { flex: 1; height: 24px; background: #f0f2f3; border-radius: 6px; overflow: hidden; position: relative; }
+.funnel-bar span { display: flex; align-items: center; padding: 0 8px; height: 100%; background: linear-gradient(90deg,#0077c5,#1f2937); color: #fff; font-size: 10px; font-weight: 600; }
+.activity-dot { width: 28px; height: 28px; border-radius: 50%; background: #f0f6f5; color: #0a6400; display: grid; place-items: center; flex-shrink: 0; }
+.activity-dot .material-symbols-outlined { font-size: 15px; }
+.activity-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f2f3; }
+.activity-row:last-child { border-bottom: 0; }
+
+/* ── Data table (customers, customer profile) ── */
+.data-table { width: 100%; text-align: left; font-size: 13px; }
+.data-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #5a6355; padding: 10px 12px; border-bottom: 1px solid #dad9dd; font-weight: 600; }
+.data-table td { padding: 12px; border-bottom: 1px solid #f0f2f3; }
+.data-table tr:hover td { background: #faf9fc; }
+
+/* ── Drawer wide variant ── */
+.drawer-wide { width: 680px; }
+
+/* ── Empty state ── */
+.empty-state { text-align: center; padding: 40px 20px; color: #5a6355; }
+.empty-state .material-symbols-outlined { font-size: 48px; color: #becab6; margin-bottom: 12px; }
+
+/* ── Icon button ── */
+.icon-btn { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: #5a6355; cursor: pointer; border: 1px solid transparent; background: none; }
+.icon-btn:hover { background: #f4f3f7; color: #1a1c1e; border-color: #dad9dd; }
+.icon-btn .material-symbols-outlined { font-size: 18px; }
+
+/* ── Role chip button (parties) ── */
+.role-chip-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid #dad9dd; border-radius: 20px; background: #fff; cursor: pointer; transition: 0.15s; font-family: inherit; font-size: 12px; color: #1a1c1e; }
+.role-chip-btn:hover { border-color: #becab6; background: #f4fbfa; }
+.role-chip-btn.selected { border-color: #0a6400; background: #e8f5e9; color: #0a6400; font-weight: 600; }
+.role-section { border: 1px solid #dad9dd; border-radius: 8px; padding: 12px; background: #faf9fc; margin-top: 12px; }
+
+/* ── Toggle switch (estimates) ── */
+.switch { position: relative; display: inline-block; width: 34px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: 0.4s; border-radius: 20px; }
+.slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: 0.4s; border-radius: 50%; }
+.switch input:checked + .slider { background-color: #0a6400; }
+.switch input:checked + .slider:before { transform: translateX(14px); }
+
+/* ── Estimates: line rows + customer block ── */
+.line-row td { border-bottom: 1px dashed #dad9dd; }
+.line-row:last-child td { border-bottom: 1px solid #dad9dd; }
+.customer-block { background-color: #fdf5e6; border: 1px solid #f0e6d2; }
+.split-btn-arrow-outline { border-radius: 0 4px 4px 0; border-left: 1px solid #dad9dd; }
+
+/* ── Statements: status pills ── */
+.st { display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.st.draft { background: #f4f3f7; color: #5a6355; }
+.st.sent { background: #e8f0fb; color: #0055a5; }
+.st.viewed { background: #fff4dc; color: #8a5a00; }
+.st.paid { background: #8af5be; color: #00714b; }
+.st.overdue { background: #ffdad6; color: #93000a; }
+.st.partial { background: #e8e8f8; color: #4a3fc4; }
+.st-avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
+
+/* ── Statement document ── */
+.stmt-doc { background: #fff; border: 1px solid #dad9dd; border-radius: 8px; padding: 24px; font-size: 13px; }
+.stmt-line { display: grid; grid-template-columns: 80px 1fr 100px 100px 100px; gap: 8px; padding: 8px 0; border-bottom: 1px solid #eeedf1; align-items: center; }
+.stmt-line.head { font: 700 10px Inter; letter-spacing: 0.06em; text-transform: uppercase; color: #5a6355; background: #f4f3f7; border-radius: 4px 4px 0 0; padding: 8px 12px; border-bottom: none; }
+.stmt-line:last-child { border-bottom: none; }
+
+/* ── Field label/textarea variants for contacts (some use non-uppercase) ── */
+.crm-green .field-label { display: block; font: 600 12px Inter; letter-spacing: 0.02em; color: #5a6355; margin-bottom: 6px; text-transform: none; }
+
+/* ── Section header variant (customers flat table uses larger) ── */
+.crm-green .section-h { font: 700 13px Inter; letter-spacing: 0.02em; color: #1a1c1e; padding-bottom: 8px; border-bottom: 1px solid #dad9dd; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; text-transform: none; }

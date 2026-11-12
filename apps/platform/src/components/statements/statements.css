@@ -1,0 +1,69 @@
+/* ═══════════════════════════════════════════════════════════════
+   Statements — consolidated mockup styles
+   Sourced 1:1 from upload/statements.html
+   Each rule below is a verbatim copy of the source <style> block.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Shared primitives (scoped to .statements-page to prevent CSS leak from
+   accounting.css:244 / receipts.css:70 which set `.field-label{width:120px}`
+   globally). */
+.statements-page{font-family:'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif}
+.statements-page .field-label{display:block;width:auto;flex-shrink:unset;font:600 11px Inter;letter-spacing:.04em;text-transform:uppercase;color:#5a6355;margin-bottom:6px}
+.statements-page .field-input{width:100%;height:34px;padding:0 10px;border:1px solid #dad9dd;border-radius:6px;font-size:13px;background:#fff}
+.statements-page .field-input:focus{outline:none;border-color:#0077c5}
+
+.statements-page .hidden-imp{display:none!important}
+.statements-page .row-check{accent-color:#0077c5}
+.statements-page .tab-underline{border-bottom:2px solid transparent}
+.statements-page .tab-underline.active{border-bottom-color:#0077c5;color:#0077c5;font-weight:600}
+.statements-page .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1c1e;color:#fff;padding:10px 16px;border-radius:8px;font:500 13px Inter;z-index:400;opacity:0;transition:opacity .2s;pointer-events:none}
+.statements-page .toast.show{opacity:1}
+.statements-page .split-btn{border-radius:4px}
+.statements-page .split-btn-main{border-radius:4px 0 0 4px}
+.statements-page .split-btn-arrow{border-radius:0 4px 4px 0;border-left:1px solid rgba(0,0,0,.08)}
+
+/* Bulk bar */
+.statements-page .bulk-bar{display:none;background:#0077c5;color:#fff;padding:8px 16px;gap:12px;align-items:center;flex-wrap:wrap}
+.statements-page .bulk-bar.show{display:flex}
+.statements-page .bulk-bar button{color:#fff;font-weight:600;font-size:12px;padding:4px 10px;border-radius:4px}
+.statements-page .bulk-bar button:hover{background:rgba(255,255,255,.15)}
+
+/* Status pills */
+.statements-page .st{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.statements-page .st.draft{background:#f4f3f7;color:#5a6355}
+.statements-page .st.sent{background:#e8f0fb;color:#0055a5}
+.statements-page .st.viewed{background:#fff4dc;color:#8a5a00}
+.statements-page .st.paid{background:#8af5be;color:#00714b}
+.statements-page .st.overdue{background:#ffdad6;color:#93000a}
+.statements-page .st.partial{background:#e8e8f8;color:#4a3fc4}
+
+/* Avatar */
+.statements-page .st-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+
+/* Drawer + scrim (right-door motion via opacity/visibility) */
+.statements-page .drawer-scrim{position:fixed;inset:0;background:rgba(26,28,30,.35);z-index:80;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease}
+.statements-page .drawer-scrim.open{opacity:1;visibility:visible}
+.statements-page .drawer{position:fixed;top:0;right:0;bottom:0;width:720px;max-width:96vw;background:#fff;z-index:81;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .22s ease;will-change:transform;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
+.statements-page .drawer.open{transform:translateX(0)}
+
+/* Modal scrim */
+.statements-page .modal-scrim{position:fixed;inset:0;background:rgba(26,28,30,.4);z-index:110;display:none;align-items:center;justify-content:center;padding:24px}
+.statements-page .modal-scrim.open{display:flex}
+
+/* Row menu */
+.statements-page .row-menu{position:fixed;background:#fff;border:1px solid #dad9dd;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);min-width:250px;padding:4px;z-index:200;display:none}
+.statements-page .row-menu.open{display:block}
+.statements-page .row-menu .menu-header{padding:6px 10px 4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+.statements-page .row-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:6px 10px;font-size:13px;border-radius:4px;text-align:left;color:#1a1c1e}
+.statements-page .row-menu button:hover{background:#f4f3f7}
+.statements-page .row-menu button .material-symbols-outlined{font-size:16px;color:#5a6355;flex-shrink:0}
+.statements-page .row-menu button.danger{color:#ba1a1a}
+.statements-page .row-menu button.danger .material-symbols-outlined{color:#ba1a1a}
+.statements-page .row-menu button.danger:hover{background:#ffdad6}
+.statements-page .row-menu .sep{height:1px;background:#eeedf1;margin:4px 0}
+
+/* Statement doc */
+.statements-page .stmt-doc{background:#fff;border:1px solid #dad9dd;border-radius:8px;padding:24px;font-size:13px}
+.statements-page .stmt-line{display:grid;grid-template-columns:80px 1fr 100px 100px 100px;gap:8px;padding:8px 0;border-bottom:1px solid #eeedf1;align-items:center}
+.statements-page .stmt-line.head{font:700 10px Inter;letter-spacing:.06em;text-transform:uppercase;color:#5a6355;background:#f4f3f7;border-radius:4px 4px 0 0;padding:8px 12px;border-bottom:none}
+.statements-page .stmt-line:last-child{border-bottom:none}

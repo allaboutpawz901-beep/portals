@@ -1,0 +1,851 @@
+/* Design Studio — Preview & Publish page (from mockup preview.html).
+   Full-screen preview with center mockup, right rail (mockup view controls),
+   action overlay buttons, and bottom bar with Publish. */
+
+.root {
+  --d-bg: #faf9fc;
+  --d-card: #fff;
+  --d-ink: #1a1c1e;
+  --d-mut: #5f6b5a;
+  --d-line: #dad9dd;
+  --d-lo: #f4f3f7;
+  --d-pri: #0a6400;
+  --d-prit: #fff;
+  --d-soft: #e8f5e9;
+  --d-ok: #2e7d32;
+  --d-warn: #a85a00;
+
+  position: relative;
+  display: flex;
+  height: calc(100vh - 92px);
+  margin: 0 -24px -48px 0;
+  padding-left: 16px;
+  background: #f4f4f4;
+  color: var(--d-ink);
+  overflow: hidden;
+  border-top: 1px solid var(--d-line);
+}
+
+/* ── Center canvas (the mockup) ── */
+.center {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.mockupImage {
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--d-mut);
+}
+
+.emptyState .ms {
+  font-size: 48px;
+  opacity: 0.4;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.emptyState h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ── Top toggle (Edit / Preview) ── */
+.topToggle {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  background: var(--d-card);
+  border-radius: 6px;
+  padding: 2px;
+  border: 1px solid var(--d-line);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.toggleBtn {
+  border: 0;
+  background: none;
+  padding: 6px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--d-mut);
+  cursor: pointer;
+}
+
+.toggleBtn.on {
+  background: var(--d-lo);
+  color: var(--d-ink);
+}
+
+/* ── Action overlay buttons (top-left) ── */
+.actionOverlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.actionBtn {
+  background: var(--d-card);
+  border: 1px solid var(--d-line);
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  color: var(--d-ink);
+}
+
+.actionBtn:hover {
+  background: var(--d-lo);
+}
+
+.actionBtn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* ── Right rail (Mockup view controls) ── */
+.rightRail {
+  width: 420px;
+  flex: none;
+  background: var(--d-card);
+  border-left: 1px solid var(--d-line);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.railHeader {
+  padding: 16px;
+  border-bottom: 1px solid var(--d-line);
+}
+
+.railHeader h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.railBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Mockup thumbs */
+.mockupThumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.mockupThumb {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--d-lo);
+  padding: 0;
+}
+
+.mockupThumb.active {
+  border-color: var(--d-ink);
+}
+
+.mockupThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--d-card);
+  border: 1px solid var(--d-line);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--d-ink);
+}
+
+.btnOutline:hover {
+  background: var(--d-lo);
+}
+
+.btnFull {
+  width: 100%;
+}
+
+.kv {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--d-lo);
+  font-size: 13px;
+}
+
+.kv:last-child {
+  border: 0;
+}
+
+.kv .key {
+  color: var(--d-mut);
+}
+
+.kv b {
+  font-weight: 600;
+}
+
+.sectionLabel {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.colorDots {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.colorDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--d-line);
+  cursor: pointer;
+}
+
+.colorDot.active {
+  outline: 2px solid var(--d-ink);
+  outline-offset: 2px;
+}
+
+.radioRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.muted {
+  font-size: 12px;
+  color: var(--d-mut);
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 420px;
+  height: 56px;
+  background: var(--d-card);
+  border-top: 1px solid var(--d-line);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  z-index: 10;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--d-ink);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.saveBtn {
+  background: var(--d-card);
+  border: 1px solid var(--d-line);
+  color: var(--d-ink);
+  padding: 8px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.saveBtn:hover {
+  background: var(--d-lo);
+}
+
+.publishBtn {
+  background: var(--d-pri);
+  color: var(--d-prit);
+  border: 0;
+  padding: 8px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.publishBtn:hover {
+  filter: brightness(0.95);
+}
+
+/* ── Modals ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.5);
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.modal {
+  background: var(--d-card);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modalWide {
+  max-width: 600px;
+}
+
+.modalHeader {
+  padding: 16px;
+  border-bottom: 1px solid var(--d-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modalClose {
+  border: 0;
+  background: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--d-mut);
+  display: grid;
+  place-items: center;
+}
+
+.modalBody {
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modalFooter {
+  padding: 16px;
+  border-top: 1px solid var(--d-line);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Variant modal */
+.varTabs {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid var(--d-line);
+  margin-bottom: 12px;
+}
+
+.varTab {
+  background: none;
+  border: 0;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--d-mut);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.varTab.active {
+  color: var(--d-ink);
+  border-bottom-color: var(--d-ink);
+}
+
+.varRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--d-line);
+  cursor: pointer;
+}
+
+.varRow input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--d-ink);
+}
+
+.varSwatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  flex: none;
+}
+
+.varName {
+  flex: 1;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.selectAllRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.selectAllRow label {
+  font-weight: 600;
+  font-size: 13px;
+  flex: 1;
+}
+
+/* Product info modal */
+.infoHero {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.infoHero img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background: var(--d-lo);
+}
+
+.infoHeroInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoHeroInfo b {
+  font-size: 15px;
+}
+
+.infoHeroInfo .muted {
+  font-size: 13px;
+}
+
+.infoHeroInfo .stock {
+  color: var(--d-warn);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.accItem {
+  border-bottom: 1px solid var(--d-line);
+}
+
+.accHead {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  background: none;
+  border: 0;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--d-ink);
+}
+
+.accBody {
+  display: none;
+  padding-bottom: 14px;
+  font-size: 13px;
+  color: var(--d-mut);
+  line-height: 1.6;
+}
+
+.accItem.open .accBody {
+  display: block;
+}
+
+.accItem.open .accHead .chev {
+  transform: rotate(180deg);
+}
+
+.chev {
+  color: var(--d-mut);
+  transition: transform 0.2s;
+}
+
+.guidelines {
+  background: var(--d-lo);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--d-ink);
+}
+
+.guidelines p {
+  margin: 0 0 12px;
+}
+
+.guidelines ul {
+  padding-left: 20px;
+  margin: 0 0 12px;
+}
+
+/* Design scaling modal */
+.scalingDiagram {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 0;
+  gap: 4px;
+}
+
+.scalingItem {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.scalingItem svg {
+  height: 80px;
+  width: auto;
+  margin-bottom: 8px;
+}
+
+/* Publish confirmation */
+.publishConfirm {
+  text-align: center;
+}
+
+.publishConfirm .ms {
+  font-size: 48px;
+  color: var(--d-pri);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.publishConfirm h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.publishConfirm p {
+  color: var(--d-mut);
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+.confirmBtn {
+  width: 100%;
+  padding: 12px;
+  background: var(--d-ink);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ── Inline-style extraction helpers ── */
+
+/* Small icon aligned with section label text (e.g. "open_in_new" beside
+   "Mockup color mode"). */
+.icon14 {
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* Variant modal hint — overrides default <p> margins. */
+.variantHint {
+  margin: 0 0 12px;
+}
+
+/* Select-all checkbox (lives inside .selectAllRow, not .varRow). */
+.selectAllRow input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--d-ink);
+}
+
+/* Expand_more chevron at the end of a variant row. */
+.varChevron {
+  color: var(--d-mut);
+}
+
+/* Apply button — uses .btnOutline as the base but renders as a primary
+   action (ink background, light text). */
+.btnApply {
+  background: var(--d-ink);
+  color: var(--d-card);
+  border-color: var(--d-ink);
+}
+
+/* "See details" small outline button in the info hero. */
+.seeDetailsBtn {
+  width: fit-content;
+  padding: 4px 10px;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Subtotal row inside the production cost accordion — top separator. */
+.kvSubtotal {
+  border-top: 1px solid var(--d-line);
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+/* Label span inside an accordion head when it contains an icon + text. */
+.accHeadLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Publish-confirm Cancel — full width, slight top gap. */
+.confirmCancelBtn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Mockup background row (Add image + White). */
+.bgRow {
+  display: flex;
+  gap: 8px;
+}
+
+/* Flex-1 modifier for outline buttons that should share a row equally. */
+.btnFlex {
+  flex: 1;
+}
+
+/* White-background variant of an outline button. */
+.bgWhiteBtn {
+  flex: 1;
+  background: var(--d-bg);
+}
+
+/* Muted paragraph with no default <p> margin (e.g. resolution note). */
+.mutedNoMargin {
+  margin: 0;
+}
+
+/* Actual-preview status chip — floats over the mockup's top edge while
+   the ingest → render pipeline runs, and reports the result. */
+.previewChip {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.82);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+  max-width: 80%;
+  text-align: center;
+}
+
+/* ── Variants bar (bottom) — color × size picker ── */
+.variantsBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  z-index: 8;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.97);
+  border-top: 1px solid var(--d-line, #e5e5e5);
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.variantsSection {
+  flex: 1;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  border-right: 1px solid var(--d-line, #e5e5e5);
+}
+.variantsSection:last-child {
+  border-right: none;
+}
+
+.variantsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--d-mut, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.variantsCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 8px;
+  background: var(--d-lo, #f4f3f7);
+  color: var(--d-mut, #666);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.colorSwatches {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  /* ALL colors visible — caps at 2 rows then scrolls horizontally so a
+     40-color product stays reachable (same data as the product page). */
+  max-height: 60px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.colorSwatches::-webkit-scrollbar { width: 4px; }
+.colorSwatches::-webkit-scrollbar-thumb { background: #c8c8d0; border-radius: 2px; }
+
+.varSwatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.varSwatch:hover {
+  transform: scale(1.12);
+}
+.varSwatchActive {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--d-pri, #0a6400);
+}
+
+.variantsMuted {
+  font-size: 11px;
+  color: var(--d-mut, #999);
+  font-style: italic;
+}
+
+.sizeChips {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.sizeChip {
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 4px;
+  border: 1px solid var(--d-line, #dad9dd);
+  background: #fff;
+  color: var(--d-ink, #1a1c1e);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.sizeChip:hover {
+  background: var(--d-lo, #f4f3f7);
+}
+.sizeChipActive {
+  background: var(--d-pri, #0a6400);
+  color: #fff;
+  border-color: var(--d-pri, #0a6400);
+}

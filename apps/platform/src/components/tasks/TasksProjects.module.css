@@ -1,0 +1,618 @@
+/* Tasks & Projects — renders inside the global shell content area.
+   No custom sidebar — uses the global SideRail. */
+
+.screenContainer {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 92px);
+  margin: 0 -24px -48px 0;
+  padding-left: 16px;
+  background: #faf9fc;
+  overflow: hidden;
+  border-top: 1px solid #dad9dd;
+
+  --t-card: #fff;
+  --t-ink: #1a1c1e;
+  --t-mut: #5f6b5a;
+  --t-line: #dad9dd;
+  --t-lo: #f4f3f7;
+  --t-pri: #0a6400;
+  --t-prit: #fff;
+  --t-blue: #0077c5;
+  --t-soft: #e8f5e9;
+  --t-warn: #a85a00;
+  --t-warnb: #fff3e0;
+  --t-bad: #ba1a1a;
+  --t-badb: #ffdad6;
+  --t-ok: #2e7d32;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--t-card);
+  border-bottom: 1px solid var(--t-line);
+  flex-shrink: 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.toolbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* View switcher */
+.viewSwitcher {
+  display: flex;
+  background: var(--t-lo);
+  border-radius: 6px;
+  padding: 2px;
+  border: 1px solid var(--t-line);
+}
+
+.viewTab {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--t-mut);
+  cursor: pointer;
+}
+
+.viewTab .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.viewTabActive {
+  background: var(--t-card);
+  color: var(--t-ink);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Project selector */
+.projectSelect {
+  padding: 6px 12px;
+  border: 1px solid var(--t-line);
+  border-radius: 6px;
+  background: var(--t-card);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--t-ink);
+  cursor: pointer;
+}
+
+.projectAddBtn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--t-line);
+  border-radius: 6px;
+  background: var(--t-card);
+  cursor: pointer;
+  color: var(--t-ink);
+}
+
+.projectAddBtn:hover {
+  background: var(--t-lo);
+}
+
+/* ── Content area ── */
+.contentArea {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  background: var(--t-pri);
+  color: var(--t-prit);
+  border-color: var(--t-pri);
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnOutline {
+  background: var(--t-card);
+  border-color: var(--t-line);
+  color: var(--t-ink);
+}
+
+.btnOutline:hover {
+  background: var(--t-lo);
+}
+
+.btnIcon {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--t-line);
+  background: var(--t-card);
+  color: var(--t-ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.btnIcon:hover {
+  background: var(--t-lo);
+}
+
+.btnIconBorderless {
+  padding: 8px;
+  border-radius: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--t-ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.btnIconBorderless:hover {
+  background: var(--t-lo);
+}
+
+/* ── Avatar group ── */
+.avatarGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  border: 2px solid var(--t-card);
+  margin-left: -8px;
+  flex-shrink: 0;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatarSm {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+  border: 2px solid var(--t-card);
+  margin: 0;
+}
+
+.inviteBtn {
+  background: var(--t-lo);
+  border: 1px solid var(--t-line);
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inviteBtn .material-symbols-outlined {
+  font-size: 14px;
+}
+
+.inviteBtn:hover {
+  background: var(--t-line);
+}
+
+/* ── Kanban board ── */
+.kanbanBoard {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: flex-start;
+}
+
+.kanbanColumn {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 100%;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px;
+}
+
+.columnTitle {
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.columnCount {
+  background: var(--t-lo);
+  color: var(--t-mut);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.columnActions {
+  display: flex;
+  gap: 4px;
+  color: var(--t-mut);
+}
+
+.columnActionIcon {
+  font-size: 18px !important;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.columnActionIcon:hover {
+  background: var(--t-lo);
+  color: var(--t-ink);
+}
+
+.kanbanCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  min-height: 150px;
+}
+
+.kanbanCard {
+  background: var(--t-card);
+  border: 1px solid var(--t-line);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: grab;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+
+.kanbanCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.kanbanCard:active {
+  cursor: grabbing;
+}
+
+.cardTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tagDesign { background: var(--t-soft); color: var(--t-ok); }
+.tagDev { background: #e1effa; color: var(--t-blue); }
+.tagMarketing { background: var(--t-warnb); color: var(--t-warn); }
+.tagUrgent { background: var(--t-badb); color: var(--t-bad); }
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 12px;
+  color: var(--t-mut);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 12px;
+  color: var(--t-mut);
+  font-size: 12px;
+  align-items: center;
+}
+
+.cardMetaIcon {
+  font-size: 16px !important;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.cardAssignee {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── List view ── */
+.listView {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.listTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--t-card);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.listTable th, .listTable td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--t-line);
+  font-size: 13px;
+}
+
+.listTable th {
+  background: var(--t-lo);
+  font-weight: 600;
+  color: var(--t-mut);
+}
+
+.listTable tr:hover td {
+  background: var(--t-lo);
+}
+
+.listAssigneeCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Calendar view ── */
+.calendarView {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.calendarTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.calendarNav {
+  display: flex;
+  gap: 8px;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid var(--t-line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--t-card);
+  flex: 1;
+}
+
+.calendarDayHeader {
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--t-mut);
+  border-bottom: 1px solid var(--t-line);
+  background: var(--t-lo);
+}
+
+.calendarCell {
+  min-height: 120px;
+  padding: 8px;
+  border-right: 1px solid var(--t-line);
+  border-bottom: 1px solid var(--t-line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calendarCell:nth-child(7n) { border-right: 0; }
+.calendarCellEmpty { background: #faf9fc; }
+
+.calendarDate {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--t-mut);
+  margin-bottom: 4px;
+}
+
+.calendarDateToday {
+  color: var(--t-pri);
+  background: var(--t-soft);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.calendarTask {
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: var(--t-lo);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-left: 3px solid transparent;
+}
+
+.calendarTask:hover { background: #e0e0e0; }
+.calendarTaskDesign { border-left-color: var(--t-ok); }
+.calendarTaskDev { border-left-color: var(--t-blue); }
+.calendarTaskMarketing { border-left-color: var(--t-warn); }
+.calendarTaskUrgent { border-left-color: var(--t-bad); }
+
+/* ── Modals ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.5);
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.modal {
+  background: var(--t-card);
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modalHeader {
+  padding: 16px;
+  border-bottom: 1px solid var(--t-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 { margin: 0; font-size: 16px; font-weight: 600; }
+
+.modalBody {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalFooter {
+  padding: 16px;
+  border-top: 1px solid var(--t-line);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.formGroup { display: flex; flex-direction: column; gap: 6px; }
+.formLabel { font-size: 12px; font-weight: 600; color: var(--t-mut); }
+
+.formInput, .formSelect, .formTextarea {
+  padding: 10px 12px;
+  border: 1px solid var(--t-line);
+  border-radius: 6px;
+  background: #faf9fc;
+  font-size: 14px;
+  width: 100%;
+  font-family: inherit;
+  color: inherit;
+}
+
+.formTextarea { resize: vertical; min-height: 80px; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.membersTitle { margin-top: 8px; margin-bottom: 0; font-size: 13px; }
+.memberList { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+
+.memberRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--t-lo);
+}
+
+.memberRow:last-child { border: 0; }
+
+.memberAvatar { width: 32px; height: 32px; margin: 0; border: 0; }
+.memberInfo { flex: 1; }
+.memberName { display: block; font-size: 13px; font-weight: 600; }
+.memberEmail { font-size: 12px; color: var(--t-mut); }
+.memberRole { font-size: 12px; font-weight: 600; color: var(--t-mut); }

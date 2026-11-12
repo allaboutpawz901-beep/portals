@@ -1,0 +1,175 @@
+/* ═══ Business Tax screens — consolidated mockup styles ═══ */
+
+/* ── from: Business Tax — Overview.html ── */
+  ::-webkit-scrollbar{width:6px;height:6px}
+  ::-webkit-scrollbar-thumb{background:#dad9dd;border-radius:3px}
+  body{overscroll-behavior:none}
+  .hidden-imp{display:none!important}
+  .row-check{accent-color:#0077c5}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1c1e;color:#fff;padding:10px 16px;border-radius:8px;font:500 13px Inter;z-index:400;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  .split-btn{border-radius:4px}
+  .split-btn-main{border-radius:4px 0 0 4px}
+  .split-btn-arrow{border-radius:0 4px 4px 0;border-left:1px solid rgba(0,0,0,.08)}
+  /* Deadline card */
+  .deadline-card{background:#fff;border:1px solid #dad9dd;border-radius:10px;padding:14px;display:flex;gap:12px;align-items:flex-start;transition:border-color .15s}
+  .deadline-card:hover{border-color:#0077c5}
+  .deadline-card.urgent{border-left:4px solid #ba1a1a}
+  .deadline-card.soon{border-left:4px solid #1e6dc9}
+  .deadline-card.far{border-left:4px solid #1e5a38}
+  .deadline-card.past{border-left:4px solid #5a6355;opacity:.75}
+  .deadline-date{width:56px;flex-shrink:0;text-align:center}
+  .deadline-date .m{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+  .deadline-date .d{font-size:22px;font-weight:700;line-height:1.1}
+  .deadline-status{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700}
+  .deadline-status.urgent{background:#ffdad6;color:#93000a}
+  .deadline-status.soon{background:#e8f0fb;color:#0055a5}
+  .deadline-status.far{background:#e8f5e8;color:#1e5a38}
+  .deadline-status.past{background:#f4f3f7;color:#5a6355}
+  /* Progress bar */
+  .progress{height:8px;background:#eeedf1;border-radius:4px;overflow:hidden}
+  .progress > div{height:100%;background:#0a6400;transition:width .3s ease}
+  /* Map accounts task */
+  .map-task{background:#fff;border:1px solid #dad9dd;border-radius:10px;padding:16px}
+  .map-task .unmapped-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f4f3f7}
+  .map-task .unmapped-row:last-child{border-bottom:none}
+  .map-task .unmapped-row .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .map-task .unmapped-row select{margin-left:auto;height:28px;font-size:12px;padding:0 6px;border:1px solid #dad9dd;border-radius:4px;background:#fff}
+  /* Chart bars */
+  .bar-row{display:flex;align-items:center;gap:10px;padding:4px 0}
+  .bar-label{width:140px;font-size:12px;color:#5a6355;text-align:right}
+  .bar-track{flex:1;height:20px;background:#f4f3f7;border-radius:3px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:3px}
+  .bar-value{width:90px;text-align:right;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* ── from: Tax summary.html ── */
+  ::-webkit-scrollbar{width:6px;height:6px}
+  ::-webkit-scrollbar-thumb{background:#dad9dd;border-radius:3px}
+  body{overscroll-behavior:none}
+  .hidden-imp{display:none!important}
+  .row-check{accent-color:#0077c5}
+  .tab-underline{border-bottom:2px solid transparent}
+  .tab-underline.active{border-bottom-color:#0077c5;color:#0077c5;font-weight:600}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1c1e;color:#fff;padding:10px 16px;border-radius:8px;font:500 13px Inter;z-index:400;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  .split-btn{border-radius:4px}
+  .split-btn-main{border-radius:4px 0 0 4px}
+  .split-btn-arrow{border-radius:0 4px 4px 0;border-left:1px solid rgba(0,0,0,.08)}
+  /* Tax summary table */
+  .tax-table{width:100%;font-size:13px}
+  .tax-table thead th{background:#f4f3f7;text-transform:uppercase;font-size:10px;font-weight:700;letter-spacing:.06em;color:#5a6355;padding:8px 12px;text-align:left;border-bottom:1px solid #dad9dd;position:sticky;top:0;z-index:2}
+  .tax-table thead th.right{text-align:right}
+  .tax-table td{padding:8px 12px;border-bottom:1px solid #eeedf1}
+  .tax-table td.right{text-align:right;font-variant-numeric:tabular-nums}
+  .tax-table tr.section td{background:#f9f9fb;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#1a1c1e;padding:10px 12px}
+  .tax-table tr.total td{font-weight:700;background:#faf9fc;border-top:1px solid #dad9dd;border-bottom:1px solid #dad9dd}
+  .tax-table tr.final td{font-weight:800;background:#e8f0fb;color:#0055a5;font-size:14px}
+  .tax-table tr.clickable{cursor:pointer}
+  .tax-table tr.clickable:hover{background:#f4f3f7}
+  .tax-table tr.unmapped td{background:#fff7f6}
+  .tax-table tr.unmapped:hover{background:#ffeae7}
+  .mapping-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+  .mapping-badge.mapped{background:#e8f5e8;color:#1e5a38}
+  .mapping-badge.unmapped{background:#ffdad6;color:#93000a}
+  .mapping-badge.partial{background:#fff4dc;color:#8a5a00}
+  .mapping-badge.none{background:#f4f3f7;color:#5a6355}
+  /* Dropdown menu */
+  .menu{position:fixed;background:#fff;border:1px solid #dad9dd;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);min-width:240px;padding:4px;z-index:200;display:none}
+  .menu.open{display:block}
+  .menu .menu-header{padding:6px 10px 4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+  .menu button{display:flex;align-items:center;gap:8px;width:100%;padding:6px 10px;font-size:13px;border-radius:4px;text-align:left;color:#1a1c1e}
+  .menu button:hover{background:#f4f3f7}
+  .menu button .material-symbols-outlined{font-size:16px;color:#5a6355;flex-shrink:0}
+  .menu button.danger{color:#ba1a1a}
+  .menu button.danger .material-symbols-outlined{color:#ba1a1a}
+  .menu button.danger:hover{background:#ffdad6}
+  .menu .sep{height:1px;background:#eeedf1;margin:4px 0}
+  /* Drawer */
+  .drawer-scrim{position:fixed;inset:0;background:rgba(26,28,30,.35);z-index:80;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease}
+  .drawer-scrim.open{opacity:1;visibility:visible}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:600px;max-width:96vw;background:#fff;z-index:81;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .22s ease;will-change:transform}
+  .drawer.open{transform:translateX(0)}
+  /* Map drawer */
+  .field-label{display:block;font:600 11px Inter;letter-spacing:.04em;text-transform:uppercase;color:#5a6355;margin-bottom:6px}
+  .field-input{width:100%;height:36px;padding:0 10px;border:1px solid #dad9dd;border-radius:6px;font-size:13px;background:#fff}
+  .field-input:focus{outline:none;border-color:#0077c5}
+  /* KPI mini cards */
+  .kpi-card{background:#fff;border:1px solid #dad9dd;border-radius:10px;padding:14px}
+  .kpi-label{font:600 10px Inter;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+  .kpi-val{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:4px;line-height:1.1}
+
+/* ── from: Year-end and filing.html ── */
+  ::-webkit-scrollbar{width:6px;height:6px}
+  ::-webkit-scrollbar-thumb{background:#dad9dd;border-radius:3px}
+  body{overscroll-behavior:none}
+  .hidden-imp{display:none!important}
+  .row-check{accent-color:#0077c5}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1c1e;color:#fff;padding:10px 16px;border-radius:8px;font:500 13px Inter;z-index:400;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  .split-btn{border-radius:4px}
+  .split-btn-main{border-radius:4px 0 0 4px}
+  .split-btn-arrow{border-radius:0 4px 4px 0;border-left:1px solid rgba(0,0,0,.08)}
+  /* Progress step bar */
+  .step-bar{display:flex;align-items:center;gap:0}
+  .step{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .step-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+  .step-circle.done{background:#108000;color:#fff}
+  .step-circle.active{background:#0077c5;color:#fff}
+  .step-circle.todo{background:#eeedf1;color:#5a6355;border:1px solid #dad9dd}
+  .step-label{font-size:12px;font-weight:600;white-space:nowrap}
+  .step-label.active{color:#0077c5}
+  .step-label.done{color:#0a6400}
+  .step-label.todo{color:#5a6355}
+  .step-line{flex:1;height:2px;background:#dad9dd;margin:0 8px;min-width:16px}
+  .step-line.done{background:#108000}
+  /* Gate */
+  .gate{max-width:520px;text-align:center;padding:48px 24px}
+  .gate-icon{width:72px;height:72px;background:#f4f3f7;border:1px solid #dad9dd;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+  /* Toggle */
+  .toggle{width:44px;height:24px;background:#dad9dd;border-radius:12px;position:relative;cursor:pointer;transition:background .15s;flex-shrink:0}
+  .toggle.on{background:#0a6400}
+  .toggle::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:left .15s}
+  .toggle.on::after{left:23px}
+  /* Feature flag chip */
+  .flag-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600;background:#e8f0fb;color:#0055a5;border:1px solid #0077c5}
+  .flag-chip.off{background:#f4f3f7;color:#5a6355;border-color:#dad9dd}
+  /* Form line row */
+  .form-line{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #eeedf1}
+  .form-line:last-child{border-bottom:none}
+  .form-line .ln{width:36px;font-family:monospace;font-size:11px;color:#5a6355;flex-shrink:0}
+  .form-line .desc{flex:1;font-size:13px}
+  .form-line .amt{font-variant-numeric:tabular-nums;font-weight:600;font-size:13px;text-align:right;min-width:100px}
+  .form-line.flagged .amt{color:#ba1a1a}
+  /* Checklist */
+  .check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f4f3f7}
+  .check-item:last-child{border-bottom:none}
+  .check-status{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .check-status.done{background:#108000;color:#fff}
+  .check-status.warn{background:#fff4dc;color:#8a5a00;border:1px solid #f0c880}
+  .check-status.todo{background:#eeedf1;color:#5a6355;border:1px solid #dad9dd}
+  /* KPI */
+  .kpi-card{background:#fff;border:1px solid #dad9dd;border-radius:10px;padding:14px}
+  .kpi-label{font:600 10px Inter;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+  .kpi-val{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:4px;line-height:1.1}
+  /* Dropdown */
+  .menu{position:fixed;background:#fff;border:1px solid #dad9dd;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);min-width:220px;padding:4px;z-index:200;display:none}
+  .menu.open{display:block}
+  .menu .menu-header{padding:6px 10px 4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+  .menu button{display:flex;align-items:center;gap:8px;width:100%;padding:6px 10px;font-size:13px;border-radius:4px;text-align:left;color:#1a1c1e}
+  .menu button:hover{background:#f4f3f7}
+  .menu button .material-symbols-outlined{font-size:16px;color:#5a6355;flex-shrink:0}
+  .menu .sep{height:1px;background:#eeedf1;margin:4px 0}
+  /* Drawer */
+  .drawer-scrim{position:fixed;inset:0;background:rgba(26,28,30,.35);z-index:80;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease}
+  .drawer-scrim.open{opacity:1;visibility:visible}
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:600px;max-width:96vw;background:#fff;z-index:81;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .22s ease;will-change:transform}
+  .drawer.open{transform:translateX(0)}
+  .field-label{display:block;font:600 11px Inter;letter-spacing:.04em;text-transform:uppercase;color:#5a6355;margin-bottom:6px}
+  .field-input{width:100%;height:36px;padding:0 10px;border:1px solid #dad9dd;border-radius:6px;font-size:13px;background:#fff}
+  .field-input:focus{outline:none;border-color:#0077c5}
+  /* Flag toggle bar (demonstration control) */
+  .flag-toggle-bar{background:#faf9fc;border-bottom:1px solid #dad9dd;padding:8px 24px;display:flex;align-items:center;gap:10px;font-size:11px;color:#5a6355}
+  .flag-toggle-bar .spacer{flex:1}
+
+/* ═══ Tax summary — scoped overrides (source: upload/Tax summary.html) ═══ */
+.tax-summary-page .menu{min-width:240px}

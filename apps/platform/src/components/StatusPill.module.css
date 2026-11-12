@@ -1,0 +1,70 @@
+.pill {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.open {
+  background-color: rgba(10, 100, 0, 0.1);
+  color: #0a6400;
+}
+
+.paid {
+  background-color: #8af5be;
+  color: #00714b;
+}
+
+.overdue {
+  background-color: #ffdad6;
+  color: #93000a;
+}
+
+.forReview {
+  background-color: rgba(0, 85, 165, 0.15);
+  color: #0055a5;
+}
+
+.unpaid {
+  background-color: #ffdad6;
+  color: #93000a;
+}
+
+.draft {
+  background-color: #eeedf1;
+  color: #5a6355;
+}
+
+.published {
+  background-color: #8af5be;
+  color: #00714b;
+}
+
+.qbBlue {
+  background-color: rgba(0, 119, 197, 0.15);
+  color: #0077c5;
+}
+
+.qbGreen {
+  background-color: rgba(30, 90, 56, 0.15);
+  color: #1e5a38;
+}
+
+.qbMaroon {
+  background-color: rgba(107, 30, 40, 0.15);
+  color: #6b1e28;
+}
+
+.qbTeal {
+  background-color: rgba(14, 94, 111, 0.15);
+  color: #0e5e6f;
+}
+
+.warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}

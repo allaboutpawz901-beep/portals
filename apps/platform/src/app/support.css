@@ -1,0 +1,76 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Support global CSS
+   ───────────────────────────────────────────────────────────────────
+   Union of the 3 support HTML <style> blocks (support overview.html,
+   tickets.html, support workspace.html), deduped.
+   Shared classes (tab-underline, bulk-bar, split-btn-main/arrow,
+   row-menu, drawer, drawer-scrim, field-label, field-input, hidden-imp,
+   row-check, toast) already exist in marketing.css — not duplicated here.
+   The .stat base lives in globals.css (unified pill standard); only the
+   support color variants are defined here. These are GLOBAL classes
+   (not scoped) — they match the HTML class names verbatim so the HTML
+   body markup ports to TSX with zero class-name translation.
+   Loaded once in layout.tsx (after marketing.css / contacts.css).
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Split button wrapper (tickets) ── */
+.split-btn { border-radius: 4px; }
+
+/* ── Stat pill color variants (support) ──
+   Base (.stat padding/size) is in globals.css with !important. */
+.stat.open { background: #e8f0fb; color: #0055a5; }
+.stat.pending { background: #fff4dc; color: #8a5a00; }
+.stat.solved { background: #8af5be; color: #00714b; }
+.stat.urgent { background: #ffdad6; color: #93000a; }
+.stat.high { background: #fff4dc; color: #8a5a00; }
+.stat.normal { background: #e8f0fb; color: #0055a5; }
+.stat.low { background: #f4f3f7; color: #5a6355; }
+
+/* ── Status pill modifiers (agent workspace; base is in marketing.css) ── */
+.status-pill.new { background: #e8f0fb; color: #0055a5; }
+.status-pill.open { background: #fff4dc; color: #8a5a00; }
+.status-pill.pending { background: #f4e8f8; color: #6b1e8a; }
+.status-pill.solved { background: #8af5be; color: #00714b; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   Agent Workspace (support workspace.html)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Workspace layout ── */
+.workspace { display: flex; flex: 1; overflow: hidden; background: #faf9fc; }
+
+/* ── Left panel: ticket properties ── */
+.panel-properties { width: 280px; flex-shrink: 0; border-right: 1px solid #dad9dd; background: #fff; display: flex; flex-direction: column; overflow-y: auto; }
+.prop-section { padding: 16px; border-bottom: 1px solid #eeedf1; }
+.prop-label { font: 600 11px Inter; letter-spacing: .04em; text-transform: uppercase; color: #5a6355; margin-bottom: 6px; display: block; }
+.prop-input { width: 100%; height: 32px; padding: 0 8px; border: 1px solid #dad9dd; border-radius: 4px; font-size: 12px; background: #fff; }
+.prop-input:focus { outline: none; border-color: #0077c5; }
+.prop-tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; border-radius: 4px; background: #f4f3f7; font-size: 10px; font-weight: 600; color: #1a1c1e; margin: 2px; border: 1px solid #dad9dd; }
+
+/* ── Middle: conversation ── */
+.panel-conversation { flex: 1; min-width: 0; display: flex; flex-direction: column; background: #faf9fc; }
+.conversation-header { padding: 12px 20px; border-bottom: 1px solid #dad9dd; background: #fff; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.message-area { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; }
+.bubble { max-width: 80%; padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.02); line-height: 1.5; }
+.bubble.customer { background: #fff; border: 1px solid #dad9dd; align-self: flex-start; border-bottom-left-radius: 2px; }
+.bubble.agent { background: #e8f0fb; border: 1px solid #e8f0fb; align-self: flex-end; border-bottom-right-radius: 2px; color: #0055a5; }
+.bubble.internal { background: #fff4dc; border: 1px solid #f0c880; align-self: flex-end; border-bottom-right-radius: 2px; color: #8a5a00; }
+.bubble-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 11px; color: #5a6355; }
+.bubble-header strong { color: #1a1c1e; font-weight: 600; }
+.bubble-time { font-size: 10px; color: #6f7a69; margin-left: auto; }
+
+/* ── Right panel: context ── */
+.panel-context { width: 300px; flex-shrink: 0; border-left: 1px solid #dad9dd; background: #fff; display: flex; flex-direction: column; }
+.context-tabs { display: flex; border-bottom: 1px solid #dad9dd; background: #fff; flex-shrink: 0; }
+.context-tab { flex: 1; padding: 10px 0; text-align: center; color: #6f7a69; cursor: pointer; border-bottom: 2px solid transparent; display: flex; justify-content: center; align-items: center; transition: all .1s; }
+.context-tab:hover { background: #faf9fc; }
+.context-tab.active { color: #0077c5; border-bottom-color: #0077c5; background: #e8f0fb; }
+.context-tab .material-symbols-outlined { font-size: 18px; }
+.context-body { flex: 1; overflow-y: auto; padding: 16px; }
+
+/* ── Ticket tabs (top bar) ── */
+.ticket-tabs { display: flex; gap: 1px; background: #eeedf1; padding: 4px 8px 0; border-bottom: 1px solid #dad9dd; flex-shrink: 0; }
+.ticket-tab { display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: #faf9fc; border: 1px solid #dad9dd; border-bottom: none; border-radius: 6px 6px 0 0; font-size: 12px; font-weight: 500; cursor: pointer; color: #5a6355; position: relative; top: 1px; }
+.ticket-tab.active { background: #fff; color: #1a1c1e; font-weight: 600; border-bottom: 1px solid #fff; z-index: 1; }
+.ticket-tab .material-symbols-outlined { font-size: 14px; cursor: pointer; color: #6f7a69; }
+.ticket-tab .material-symbols-outlined:hover { color: #ba1a1a; }

@@ -1,0 +1,186 @@
+/* ═══════════════════════════════════════════════════════════════
+   Expenses & Bills — consolidated mockup styles
+   Sourced 1:1 from upload/:
+     - Expenses & Bills — Overview.html
+     - Bills.html
+     - Pay bills.html
+     - Vendors.html
+     - Purchase order.html
+   Each section below is a verbatim copy of the corresponding
+   <style> block in the source HTML. Do not edit by hand.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── shared primitives (present in every source) ── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-thumb{background:#dad9dd;border-radius:3px}
+body{overscroll-behavior:none}
+.hidden-imp{display:none!important}
+.row-check{accent-color:#0077c5}
+
+/* Tabs */
+.tab-underline{border-bottom:2px solid transparent}
+.tab-underline.active{border-bottom-color:#0a6400;color:#0a6400;font-weight:600}
+.tab-underline.active-blue{border-bottom-color:#0077c5;color:#0077c5;font-weight:600}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1c1e;color:#fff;padding:10px 16px;border-radius:8px;font:500 13px Inter;z-index:500;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}
+.toast.show{opacity:1}
+.toast.bottom-80{bottom:80px}
+
+/* Split button */
+.split-btn{border-radius:4px}
+.split-btn-main{border-radius:4px 0 0 4px}
+.split-btn-arrow{border-radius:0 4px 4px 0;border-left:1px solid rgba(0,0,0,.08)}
+.split-btn-arrow.on-primary{border-left-color:rgba(255,255,255,.2)}
+
+/* ── from: Expenses & Bills — Overview.html ── */
+.eb-kpi-card{background:#fff;border:1px solid #dad9dd;border-radius:10px;padding:14px}
+.eb-kpi-label{font:600 10px Inter;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+.eb-kpi-val{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:4px;line-height:1.1}
+.receipt-thumb{width:32px;height:38px;border-radius:4px;background:linear-gradient(135deg,#f4f3f7 0%,#eeedf1 100%);border:1px solid #dad9dd;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;overflow:hidden}
+.receipt-thumb::before{content:"";position:absolute;top:6px;left:6px;right:6px;height:2px;background:#becab6;box-shadow:0 6px 0 #becab6, 0 12px 0 #becab6, 0 18px 0 #dad9dd}
+.bstatus{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.bstatus.review{background:#e8f0fb;color:#0055a5}
+.bstatus.unpaid{background:#ffdad6;color:#93000a}
+.bstatus.paid{background:#8af5be;color:#00714b}
+.bstatus.overdue{background:#ffdad6;color:#93000a;border:1px solid #ba1a1a}
+.vendor-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f4f3f7}
+.vendor-row:last-child{border-bottom:none}
+.vendor-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.quick-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #f4f3f7}
+.quick-row:last-child{border-bottom:none}
+.quick-avatar{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.progress{height:8px;background:#eeedf1;border-radius:4px;overflow:hidden}
+.progress > div{height:100%;background:#0a6400;transition:width .3s ease}
+
+/* Menu (fixed popover) — used by Overview, Vendors */
+.menu{position:fixed;background:#fff;border:1px solid #dad9dd;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);min-width:220px;padding:4px;z-index:200;display:none}
+.menu.open{display:block}
+.menu .menu-header{padding:6px 10px 4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+.menu button{display:flex;align-items:center;gap:8px;width:100%;padding:6px 10px;font-size:13px;border-radius:4px;text-align:left;color:#1a1c1e}
+.menu button:hover{background:#f4f3f7}
+.menu button .material-symbols-outlined{font-size:16px;color:#5a6355;flex-shrink:0}
+.menu button.danger{color:#ba1a1a}
+.menu button.danger .material-symbols-outlined{color:#ba1a1a}
+.menu button.danger:hover{background:#ffdad6}
+.menu .sep{height:1px;background:#eeedf1;margin:4px 0}
+
+/* Row menu (Bills, Vendors, Purchase order) — same as .menu but renamed in their HTML */
+.row-menu{position:fixed;background:#fff;border:1px solid #dad9dd;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);min-width:200px;padding:4px;z-index:200;display:none}
+.row-menu.open{display:block}
+.row-menu .menu-header{padding:6px 10px 4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+.row-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:6px 10px;font-size:13px;border-radius:4px;text-align:left;color:#1a1c1e}
+.row-menu button:hover{background:#f4f3f7}
+.row-menu button .material-symbols-outlined{font-size:16px;color:#5a6355;flex-shrink:0}
+.row-menu button.danger{color:#ba1a1a}
+.row-menu button.danger .material-symbols-outlined{color:#ba1a1a}
+.row-menu button.danger:hover{background:#ffdad6}
+.row-menu .sep{height:1px;background:#eeedf1;margin:4px 0}
+
+/* Drawer + scrim — opacity/visibility transitions (right-door motion) */
+.drawer-scrim{position:fixed;inset:0;background:rgba(26,28,30,.35);z-index:80;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease}
+.drawer-scrim.open{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:520px;max-width:96vw;background:#fff;z-index:81;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .22s ease;will-change:transform;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
+.drawer.open{transform:translateX(0)}
+.drawer.w-380{width:380px}
+.drawer.w-560{width:560px}
+.drawer.w-600{width:600px}
+.drawer.w-960{width:960px}
+
+/* Field primitives — scoped to expenses-bills pages to prevent leak from
+   accounting.css:244 / receipts.css:70 which set `.field-label{width:120px}`
+   globally. Each screen wraps in its own page class. */
+.expenses-bills-page .field-label,
+.bills-page .field-label,
+.pay-bills-page .field-label,
+.vendors-page .field-label,
+.purchase-order-page .field-label{display:block;width:auto;flex-shrink:unset;font:600 11px Inter;letter-spacing:.04em;text-transform:uppercase;color:#5a6355;margin-bottom:6px}
+.expenses-bills-page .field-input,
+.bills-page .field-input,
+.pay-bills-page .field-input,
+.vendors-page .field-input,
+.purchase-order-page .field-input{width:100%;height:36px;padding:0 10px;border:1px solid #dad9dd;border-radius:6px;font-size:13px;background:#fff}
+.expenses-bills-page .field-input:focus,
+.bills-page .field-input:focus,
+.pay-bills-page .field-input:focus,
+.vendors-page .field-input:focus,
+.purchase-order-page .field-input:focus{outline:none;border-color:#0077c5}
+.expenses-bills-page .field-select,
+.bills-page .field-select,
+.pay-bills-page .field-select,
+.vendors-page .field-select,
+.purchase-order-page .field-select{width:100%;height:36px;padding:0 30px 0 10px;border:1px solid #dad9dd;border-radius:6px;font-size:13px;background:#fff;appearance:none;cursor:pointer}
+.expenses-bills-page .field-select:focus,
+.bills-page .field-select:focus,
+.pay-bills-page .field-select:focus,
+.vendors-page .field-select:focus,
+.purchase-order-page .field-select:focus{outline:none;border-color:#0a6400;box-shadow:0 0 0 3px rgba(10,100,0,.1)}
+
+/* Icon button */
+.icon-btn{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;color:#5a6355;cursor:pointer}
+.icon-btn:hover{background:#f4f3f7;color:#1a1c1e}
+
+/* ── from: Bills.html ── */
+.popover{position:absolute;background:#fff;border:1px solid #dad9dd;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.14);z-index:120;display:none}
+.popover.open{display:block}
+
+/* Toggle switch (Bills customize, Purchase order) */
+.switch{position:relative;display:inline-block;width:34px;height:20px}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:.4s;border-radius:20px}
+.slider:before{position:absolute;content:"";height:14px;width:14px;left:3px;bottom:3px;background-color:white;transition:.4s;border-radius:50%}
+input:checked + .slider{background-color:#0a6400}
+input:checked + .slider:before{transform:translateX(14px)}
+
+/* ── from: Pay bills.html ── */
+.pay-header{background:#fff;border-bottom:1px solid #dad9dd;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:20}
+.pay-header .total-block{text-align:right;padding-left:20px;border-left:1px solid #dad9dd}
+.pay-header .total-block .label{font:700 10px Inter;letter-spacing:.06em;text-transform:uppercase;color:#5a6355}
+.pay-header .total-block .val{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;color:#0a6400;line-height:1.1}
+.pay-controls{background:#faf9fc;border-bottom:1px solid #dad9dd;padding:14px 24px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:16px}
+.pay-filters{background:#fff;border-bottom:1px solid #dad9dd;padding:10px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pay-table{width:100%;font-size:13px}
+.pay-table thead th{background:#f4f3f7;font:700 10px Inter;letter-spacing:.06em;text-transform:uppercase;color:#5a6355;padding:10px 16px;text-align:left;border-bottom:1px solid #dad9dd;position:sticky;top:var(--header-offset,0px);z-index:5}
+.pay-table thead th.right{text-align:right}
+.pay-table td{padding:12px 16px;border-bottom:1px solid #eeedf1}
+.pay-table td.right{text-align:right;font-variant-numeric:tabular-nums}
+.pay-table tr.checked{background:#e8f0fb}
+.pay-table tr.checked:hover{background:#dde9f8}
+.pay-table tr:hover{background:#f4f3f7}
+.pay-table .amt-input{width:120px;height:30px;padding:0 8px;border:1px solid #dad9dd;border-radius:4px;font-size:13px;text-align:right;font-variant-numeric:tabular-nums;background:#fff}
+.pay-table .amt-input:focus{outline:none;border-color:#0077c5}
+.pay-table .overdue{color:#ba1a1a;font-weight:600}
+.pay-footer{background:#fff;border-top:1px solid #dad9dd;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;bottom:0;z-index:20}
+
+/* Modal scrim (Pay bills confirmation/success) */
+.modal-scrim{position:fixed;inset:0;background:rgba(26,28,30,.4);z-index:110;display:none;align-items:center;justify-content:center;padding:24px}
+.modal-scrim.open{display:flex}
+
+/* ── from: Vendors.html ── */
+.bulk-bar{display:none;background:#0077c5;color:#fff;padding:8px 16px;gap:12px;align-items:center;flex-wrap:wrap}
+.bulk-bar.show{display:flex}
+.bulk-bar button{color:#fff;font-weight:600;font-size:12px;padding:4px 10px;border-radius:4px}
+.bulk-bar button:hover{background:rgba(255,255,255,.15)}
+.v-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.w9{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.02em}
+.w9.on{background:#8af5be;color:#00714b}
+.w9.off{background:#ffdad6;color:#93000a}
+.w9.pending{background:#fff4dc;color:#8a5a00}
+.w9.na{background:#f4f3f7;color:#5a6355}
+.role{display:inline-flex;align-items:center;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.role.supplier{background:#e8f0fb;color:#0055a5}
+.role.contractor{background:#fff4dc;color:#8a5a00}
+.role.consultant{background:#e8f5e8;color:#1e5a38}
+.role.utility{background:#f4e8f8;color:#6b1e8a}
+.section-h{font:700 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:#1a1c1e;padding-bottom:6px;border-bottom:1px solid #dad9dd;margin-bottom:10px}
+.role-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600;border:1px solid #dad9dd;background:#fff;cursor:pointer;color:#5a6355}
+.role-chip.active{background:#e8f0fb;color:#0055a5;border-color:#0077c5}
+.sec-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 0;user-select:none}
+.sec-header:hover{color:#0077c5}
+.sec-chevron{transition:transform .15s}
+.sec-chevron.open{transform:rotate(180deg)}
+
+/* ── from: Purchase order.html ── */
+.line-row td{border-bottom:1px dashed #dad9dd}
+.line-row:last-child td{border-bottom:1px solid #dad9dd}
+.vendor-block{background-color:#f8fafb;border:1px solid #e2e8f0}

@@ -1,0 +1,309 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  background-color: #faf9fc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1c1e;
+}
+
+/* Context Header */
+.contextHeader {
+  height: 52px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dad9dd;
+  flex-shrink: 0;
+}
+
+.breadcrumbsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.breadcrumbDomainIcon {
+  font-size: 20px;
+  color: #5a6355;
+  display: inline-flex;
+}
+
+.breadcrumbDomain {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1c1e;
+}
+
+.breadcrumbSep {
+  font-size: 12px;
+  color: #6f7a69;
+}
+
+.breadcrumbSection {
+  font-size: 12px;
+  color: #5a6355;
+}
+
+.breadcrumbActive {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0a6400;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 0 24px 48px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #1a1c1e;
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 12px;
+  color: #5a6355;
+  margin: 2px 0 0 0;
+}
+
+/* Setup Card */
+.setupCard {
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .setupCard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #5a6355;
+  margin-bottom: 6px;
+}
+
+.fieldInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: #1a1c1e;
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: #0a6400;
+}
+
+/* Tie-Out Summary Banner */
+.tieOutBanner {
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 900px) {
+  .tieOutBanner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5a6355;
+}
+
+.summaryVal {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1c1e;
+  font-variant-numeric: tabular-nums;
+  margin-top: 4px;
+}
+
+.diffBalanced {
+  color: #0a6400;
+}
+
+.diffUnbalanced {
+  color: #ba1a1a;
+}
+
+/* Two-column Clearing Tables */
+.clearingGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 1100px) {
+  .clearingGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sectionCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dad9dd;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionHeader {
+  padding: 12px 16px;
+  background-color: #f4f3f7;
+  border-bottom: 1px solid #dad9dd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1c1e;
+  margin: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.table th {
+  padding: 8px 12px;
+  background-color: #faf9fc;
+  border-bottom: 1px solid #dad9dd;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5a6355;
+  text-align: left;
+}
+
+.table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eeedf1;
+  vertical-align: middle;
+}
+
+.table tr:hover {
+  background-color: #f8fafb;
+}
+
+/* Bottom Action Bar */
+.bottomBar {
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnPrimary {
+  height: 36px;
+  padding: 0 16px;
+  background-color: #0a6400;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnPrimary:hover {
+  background-color: #108000;
+}
+
+.btnSecondary {
+  height: 36px;
+  padding: 0 16px;
+  background-color: #ffffff;
+  color: #1a1c1e;
+  border: 1px solid #dad9dd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnSecondary:hover {
+  background-color: #f4f3f7;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1c1e;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 400;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}

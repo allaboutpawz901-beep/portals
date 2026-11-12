@@ -1,0 +1,215 @@
+/* ── RowMenu (⋯ dropdown) ── */
+.rowMenuWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.rowMenuBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: #5a6355;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.12s;
+}
+
+.rowMenuBtn:hover {
+  background-color: #eeedf1;
+  color: #1a1c1e;
+}
+
+.rowMenu {
+  position: fixed;
+  top: auto;
+  right: auto;
+  z-index: 9999;
+  min-width: 180px;
+  max-width: 280px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 4px;
+}
+
+.rowMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 13px;
+  color: #1a1c1e;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  background: transparent;
+  transition: background-color 0.1s;
+}
+
+.rowMenuItem:hover:not(:disabled) {
+  background-color: #f4f3f7;
+}
+
+.rowMenuItem:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.rowMenuItemDanger {
+  color: #ba1a1a;
+}
+
+.rowMenuItemDanger:hover:not(:disabled) {
+  background-color: #ffdad6;
+}
+
+.rowMenuDivider {
+  height: 1px;
+  background-color: #eeedf1;
+  margin: 4px 0;
+}
+
+/* ── BulkBar ── */
+.bulkBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: #eaf4e8;
+  border-bottom: 1px solid #dad9dd;
+  font-size: 13px;
+}
+
+.bulkBarText {
+  font-weight: 600;
+  color: #0a6400;
+}
+
+.bulkBarBtn {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #dad9dd;
+  background-color: #ffffff;
+  color: #1a1c1e;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background-color 0.12s;
+}
+
+.bulkBarBtn:hover {
+  background-color: #f4f3f7;
+  border-color: #6f7a69;
+}
+
+.bulkBarBtnDanger {
+  color: #ba1a1a;
+  border-color: #ffdad6;
+}
+
+.bulkBarBtnDanger:hover {
+  background-color: #ffdad6;
+}
+
+.bulkBarSpacer {
+  flex: 1;
+}
+
+.bulkBarClose {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: #5a6355;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bulkBarClose:hover {
+  background-color: rgba(10, 100, 0, 0.1);
+  color: #0a6400;
+}
+
+/* ── Pagination ── */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #5a6355;
+}
+
+.paginationBtn {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #dad9dd;
+  background-color: #ffffff;
+  color: #1a1c1e;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.paginationBtn:hover:not(:disabled) {
+  background-color: #f4f3f7;
+}
+
+.paginationBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Split-button dropdown ── */
+.splitDropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  z-index: 50;
+  min-width: 200px;
+  background-color: #ffffff;
+  border: 1px solid #dad9dd;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 4px;
+  overflow: hidden;
+}
+
+.splitDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 13px;
+  color: #1a1c1e;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  background: transparent;
+}
+
+.splitDropdownItem:hover {
+  background-color: #f4f3f7;
+}

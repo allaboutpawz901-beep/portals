@@ -1,0 +1,619 @@
+/* Product page modal (from productguide.html) — gallery, specs, unified
+   fulfillment section with supplier tabs, color/size variants, Start designing CTA.
+   Also used by ProductPageScreen (full page version) via .pageRoot / .pageCard. */
+
+/* ── Full-page variant (ProductPageScreen) ── */
+.pageRoot {
+  padding: 0 0 48px;
+  background: #faf9fc;
+  min-height: calc(100vh - 92px);
+}
+
+.pageCard {
+  background: #fff;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Modal variant (ProductPageModal) ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.5);
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px;
+  overflow-y: auto;
+}
+
+.modal {
+  background: #fff;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header strip with close */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line, #dad9dd);
+  background: #fff;
+}
+
+.headerTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink, #1a1c1e);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.closeBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--line, #dad9dd);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--ink, #1a1c1e);
+}
+
+.closeBtn:hover {
+  background: var(--lo, #f4f3f7);
+}
+
+/* Body scroll area */
+.body {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(90vh - 60px);
+}
+
+/* Product hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mainImage {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--lo, #f4f3f7);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--line, #dad9dd);
+}
+
+.mainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbRow {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.thumb {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--lo, #f4f3f7);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.thumb.active {
+  border-color: var(--ink, #1a1c1e);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info column */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.brand {
+  font-size: 14px;
+  color: var(--mut, #5f6b5a);
+  margin: 0;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line, #dad9dd);
+}
+
+.spec b {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.spec span {
+  color: var(--mut, #5f6b5a);
+  font-size: 13px;
+}
+
+/* Fulfillment section */
+.fulfillment {
+  background: #fff;
+  border: 1px solid var(--line, #dad9dd);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.fulfillHeader {
+  margin-bottom: 12px;
+}
+
+.fulfillTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.supplierTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line, #dad9dd);
+  padding-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.supplierTab {
+  background: none;
+  border: 0;
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--mut, #5f6b5a);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.supplierTab.active {
+  background: var(--lo, #f4f3f7);
+  color: var(--ink, #1a1c1e);
+}
+
+.supplierTab:hover {
+  background: var(--lo, #f4f3f7);
+}
+
+.supplierName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.supplierName b {
+  font-size: 15px;
+}
+
+.supplierBadge {
+  font-size: 11px;
+  background: var(--lo, #f4f3f7);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--mut, #5f6b5a);
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 500px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.summaryBox {
+  background: #faf9fc;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line, #dad9dd);
+}
+
+.summaryLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--mut, #5f6b5a);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.summaryValue {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.summarySub {
+  font-size: 11px;
+  color: var(--mut, #5f6b5a);
+  margin-top: 4px;
+}
+
+.variantSection {
+  margin-top: 12px;
+}
+
+.variantTitle {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.swatches {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.swatchBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  background: #fff;
+}
+
+.swatchBtn.active {
+  border-color: var(--ink, #1a1c1e);
+}
+
+.swatchInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sizes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.sizeBtn {
+  padding: 4px 12px;
+  border: 1px solid var(--line, #dad9dd);
+  border-radius: 6px;
+  background: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.sizeBtn.active {
+  border-color: var(--ink, #1a1c1e);
+  background: var(--ink, #1a1c1e);
+  color: #fff;
+}
+
+.printAreas {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--mut, #5f6b5a);
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.printArea {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.shipping {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--mut, #5f6b5a);
+  margin-top: 12px;
+}
+
+/* CTA */
+.cta {
+  width: 100%;
+  padding: 14px;
+  background: var(--ink, #1a1c1e);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cta:hover {
+  background: #333;
+}
+
+/* Confirmation sub-modal */
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.6);
+  z-index: 210;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.confirmBox {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.confirmBox h2 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+}
+
+.confirmBox p {
+  color: var(--mut, #5f6b5a);
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+.confirmBtn {
+  width: 100%;
+  padding: 12px;
+  background: var(--ink, #1a1c1e);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ── Inline-style extraction helpers ──
+   Shared by ProductPageModal and ProductPageScreen (both consume this
+   module). Mostly icon-size helpers and structural wrappers that previously
+   used inline style={{...}} attributes. */
+
+/* Material-symbols-outlined icon size presets. */
+.icon14 {
+  font-size: 14px;
+}
+
+.icon16 {
+  font-size: 16px;
+}
+
+.icon18 {
+  font-size: 18px;
+}
+
+/* Large confirmation check_circle in the Supplier Selected sub-modal. */
+.confirmIcon {
+  font-size: 48px;
+  color: #0a6400;
+  margin-bottom: 16px;
+}
+
+/* "Product details" link inside the brand line. */
+.productDetailsLink {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Origin summary box uses a smaller value size than the others. */
+.summaryValueSm {
+  font-size: 13px;
+}
+
+/* Variant group wrappers (Colors / Sizes / Print areas). The Colors
+   group sits first so it gets a smaller top margin; Sizes and Print
+   areas use the default .variantGroup (12px). */
+.variantGroup {
+  margin-top: 12px;
+}
+
+.variantGroupColors {
+  margin-top: 8px;
+}
+
+/* "Colors • N" / "Sizes • N" / "Print areas • N" labels. */
+.variantGroupLabel {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Key Features block at the bottom of the body. */
+.featuresSection {
+  margin-top: 32px;
+}
+
+.featuresTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.featuresList {
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Top category nav + detail-cards strip (Task 1) — the persisted
+   navigation on the products page inside the designer. ── */
+.topNav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 12px 16px 0;
+}
+
+.topNavBtn {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.topNavBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.topNavBtnActive {
+  background: #111;
+  color: #fff;
+}
+
+.cardsStrip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 16px;
+  align-items: stretch;
+}
+
+.cardBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 120px;
+  max-width: 160px;
+  padding: 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+}
+
+.cardBtnActive {
+  border-color: #111;
+  box-shadow: 0 0 0 1px #111;
+}
+
+.cardThumb {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f4f3f7;
+}
+
+.cardName {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cardPrice {
+  font-size: 12px;
+  color: #666;
+}

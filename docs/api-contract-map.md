@@ -1,4 +1,12 @@
-# AAPawZ API Contract Map — measured against the unified platform core
+# AAPawZ API Contract Map
+
+> **Superseded in part (2026-11-11):** the per-route ledger in
+> `api-route-ledger.md` re-classified every route from its own evidence.
+> Final per-route totals: MAPS 834 · PRESERVABLE 435 · NOT PRESERVABLE 8 ·
+> NEEDS REVIEW 7. This document's structural findings stand; its group
+> verdict totals (953/320/11) do not.
+
+ — measured against the unified platform core
 
 Census date: 2026-11-11. Read-only census of `~/workspace/aapawz/repo/src/app/api/**`
 measured against (a) the platform SRC Sunny supplied

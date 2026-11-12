@@ -1,0 +1,1 @@
+{"name":"unified-platform","packageManager":"pnpm@9","private":true,"scripts":{},"version":"0.1.0","workspaces":["apps/*","packages/modules/*"]}
